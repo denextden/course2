@@ -43,9 +43,8 @@ def get_comments_by_post_id(post_id):
                         "post_id": comment['post_id']
                     }
                 )
-        
-        return comments_by_post
 
+        return comments_by_post
 
 
 def search_for_posts(query):
@@ -65,7 +64,10 @@ def search_for_posts(query):
                     "pk": word['pk']
                 }
             )
-    return posts_by_word
+    if len(posts_by_word) <= 10:
+        return posts_by_word
+    else:
+        return posts_by_word[:10]
 
 
 def get_post_by_pk(pk):
