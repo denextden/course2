@@ -16,16 +16,7 @@ def get_posts_by_user(user_name):
     users_posts = []
     for user in get_posts_all():
         if user['poster_name'].lower() == user_name.lower():
-            users_posts.append({
-                "poster_name": user['poster_name'],
-                "poster_avatar": user['poster_avatar'],
-                "pic": user['pic'],
-                "content": user['content'],
-                "views_count": user['views_count'],
-                "likes_count": user['likes_count'],
-                "pk": user['pk']
-            }
-            )
+            users_posts.append(user)
     return users_posts
 
 
