@@ -12,5 +12,6 @@ def test_keys():
     response = app.test_client().get('/api/posts')
     keys_list = ["poster_name", "poster_avatar", "pic", "content", "views_count", "likes_count", "pk"]
     test_data = response.json
-    test_post = test_data[0]
-    assert set(test_post.keys()) == set(keys_list)
+    for post in test_data:
+        if post.keys() in keys_list:
+            assert set(post.keys()) == set(keys_list)
